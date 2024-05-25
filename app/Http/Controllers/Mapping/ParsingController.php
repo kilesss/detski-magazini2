@@ -175,7 +175,6 @@ class ParsingController extends ParsingHelpers
         }
         preg_match_all($this->regex['images'], $this->html, $matches, PREG_SET_ORDER, 0);
         $links = [];
-
         foreach ($matches as $match) {
             if (isset($match[1])) {
                 $links[] = [

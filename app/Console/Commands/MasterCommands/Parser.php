@@ -32,7 +32,6 @@ class Parser extends Command
         $categoriesModel = new ClientCategories();
         $category = $categoriesModel->getNotMappedCategory();
         $shopModel = new Clients();
-        var_dump($category);
         $model = $shopModel->getScript($category->client_id);
         $productsModel = new Products();
         $productsModel->deleteProductsFromCategory($category->id);

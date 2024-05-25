@@ -39,7 +39,7 @@ class Products
             $productsDBQuery -> orderBy('price', 'desc');
 
         }
-
+dd($productsDBQuery->toSql(), $category, $page, $sort, $shopId);
         $count = $productsDBQuery->count();
         $result = $productsDBQuery
             ->take(15)->skip(($page-1)*15)->get()->toArray();

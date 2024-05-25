@@ -32,4 +32,9 @@ class HomeController extends Controller
             'randomProd3' => $product->getRandomProduct(8),
             ]);
     }
+
+    public function parseData()
+    {
+
+    }
 }

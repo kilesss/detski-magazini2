@@ -16,7 +16,7 @@ class hippoMapping implements MappingInterface
     public function parseData($links, $shopId): void
     {
         $parseController = new ParsingController($links, $shopId,  [
-            'images' => '/<img alt="main product photo" class="gallery-placeholder__image" src="(\S+)" \/>/m',
+            'images' => '/<source type="image\/webp" srcset="(\S+)" alt="main product photo">/m',
             'title' => '/ data-ui-id="page-title-wrapper">(.*?)<\/span>/mix',
             'price' =>  '/price_info":{"final_price":(\S+),"max_price/mix',
             'pricePromotion' =>  '//mix',

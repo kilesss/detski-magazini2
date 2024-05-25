@@ -49,7 +49,11 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Auth::routes();
-
+Route::get('/parseData2', function () {
+    Artisan::queue('app:parser');
+    //
+});
+Route::get('/parseData', [\App\Http\Controllers\Front\HomeController::class, 'parseData'])->name('parseData');
 Route::get('/home', [\App\Http\Controllers\Front\HomeController::class, 'index'])->name('home');
 Route::get('/category/{id}/{page?}/{filter?}/{shopId?}', [\App\Http\Controllers\Front\CategoriesController::class, 'getCategory'])->name('category');
 Route::post('/search/{page?}/{filter?}', [\App\Http\Controllers\Front\CategoriesController::class, 'postSearch'])->name('search');

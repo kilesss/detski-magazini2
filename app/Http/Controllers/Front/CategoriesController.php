@@ -25,9 +25,10 @@ class CategoriesController extends Controller
     {
         $productsInstance = new Products();
         $params = $productsInstance->getPoductsPagination('', $id, $page, $filter, $shopId);
+        dd($params);
         $params['categoryID']= $id;
         $params['filter'] = $filter;
-        $params['categoriesMapping'] = CategoriesForMapping::join('categories', 'categories.id', 'categories_for_mapping.category_id')->orderBy('categories.title')->get()->toArray();
+//        $params['categoriesMapping'] = CategoriesForMapping::join('categories', 'categories.id', 'categories_for_mapping.category_id')->orderBy('categories.title')->get()->toArray();
 
         return $this->view('category', $params);
     }
